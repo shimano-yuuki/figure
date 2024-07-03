@@ -1,6 +1,6 @@
-# training_app
+# figure
 
-A new Flutter project.
+This is a revolutionary app that promotes muscle training.
 
 ## Getting Started
 
@@ -15,3 +15,6 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # training_app
+
+# build_runner を実行
+$ flutter packages pub run build_runner build
