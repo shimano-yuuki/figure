@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/presentation/style/colors.dart';
 import 'package:training_app/router.dart';
 
 void main() {
@@ -11,9 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'training_app',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+        colorScheme: ColorScheme.fromSeed(seedColor: MyColor.darkyellow),
         useMaterial3: true,
       ),
       routerDelegate: router.routerDelegate,
