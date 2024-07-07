@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:training_app/presentation/style/colors.dart';
+import 'package:training_app/presentation/style/style.dart';
 
 class PasswordTextFormField extends StatefulWidget {
   const PasswordTextFormField({super.key, required this.labelText});
@@ -13,6 +15,7 @@ class _EmailTextFormFieldState extends State<PasswordTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+        style: AppTextstyle.regular(14, color: MyColor.darkyellow),
         controller: _emailController,
         decoration: InputDecoration(
           labelText: widget.labelText,
@@ -32,6 +35,7 @@ class _EmailTextFormFieldState extends State<PasswordTextFormField> {
             }
             return null;
           };
+          return null;
         });
   }
 }

@@ -33,3 +33,11 @@ flutter:
 
   assets:
     - assets/images/figure_logo.png
+
+  fonts:
+    - family: NotoSansJP
+      fonts:
+        - asset: assets/fonts/NotoSansJP-Light.ttf
+        - asset: assets/fonts/NotoSansJP-Regular.ttf
+        - asset: assets/fonts/NotoSansJP-Medium.ttf
+        - asset: assets/fonts/NotoSansJP-Bold.ttf
