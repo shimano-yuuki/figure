@@ -16,47 +16,50 @@ class LogInPage extends ConsumerWidget {
       backgroundColor: MyColor.darkgreen,
       body: Padding(
         padding: const EdgeInsets.all(50),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-                height: 150,
-                width: 150,
-                child: Image.asset(Assets.images.figureLogo.path)),
-            Form(
-              key: _formKey,
-              child: const Column(
-                children: [
-                  EmailTextFormField(labelText: 'e-mail'),
-                  SizedBox(height: 10),
-                  PasswordTextFormField(labelText: 'password'),
-                ],
-              ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                    height: 150,
+                    width: 150,
+                    child: Image.asset(Assets.images.figureLogo.path)),
+                Form(
+                  key: _formKey,
+                  child: const Column(
+                    children: [
+                      EmailTextFormField(labelText: 'e-mail'),
+                      SizedBox(height: 10),
+                      PasswordTextFormField(labelText: 'password'),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: MyColor.darkyellow),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context.go('/home');
+                    }
+                  },
+                  child: Text(
+                    'ログイン',
+                    style: AppTextstyle.bold(12, color: MyColor.darkgreen),
+                  ),
+                ),
+                TextButton(
+                    onPressed: () {
+                      //TODO 新規登録画面作成時に遷移を記述
+                      context.go('/');
+                    },
+                    child: Text(
+                      '新規登録はこちら',
+                      style: AppTextstyle.bold(12, color: MyColor.darkyellow),
+                    ))
+              ],
             ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              style:
-                  ElevatedButton.styleFrom(backgroundColor: MyColor.darkyellow),
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  context.go('/home');
-                }
-              },
-              child: Text(
-                'ログイン',
-                style: AppTextstyle.bold(12, color: MyColor.darkgreen),
-              ),
-            ),
-            TextButton(
-                onPressed: () {
-                  //TODO 新規登録画面作成時に遷移を記述
-                  context.go('/');
-                },
-                child: Text(
-                  '新規登録はこちら',
-                  style: AppTextstyle.bold(12, color: MyColor.darkyellow),
-                ))
-          ],
+          ),
         ),
       ),
     );
