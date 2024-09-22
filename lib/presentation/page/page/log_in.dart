@@ -37,7 +37,7 @@ class LogInPage extends ConsumerWidget {
                 const SizedBox(height: 30),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: MyColor.darkyellow),
+                      backgroundColor: MyColor.darkYellow),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       context.go('/home');
@@ -55,7 +55,7 @@ class LogInPage extends ConsumerWidget {
                     },
                     child: Text(
                       '新規登録はこちら',
-                      style: AppTextstyle.bold(12, color: MyColor.darkyellow),
+                      style: AppTextstyle.bold(12, color: MyColor.darkYellow),
                     ))
               ],
             ),
