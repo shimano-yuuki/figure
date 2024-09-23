@@ -15,7 +15,7 @@ class _EmailTextFormFieldState extends State<EmailTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: AppTextstyle.regular(14, color: MyColor.darkYellow),
+      style: AppTextstyle.regular( color: MyColor.darkYellow),
       controller: _emailController,
       decoration: InputDecoration(
         labelText: widget.labelText,

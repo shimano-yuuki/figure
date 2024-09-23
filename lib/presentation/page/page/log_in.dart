@@ -23,7 +23,7 @@ class LogInPage extends ConsumerWidget {
                 SizedBox(
                     height: 150,
                     width: 150,
-                    child: Image.asset(Assets.images.figureLogo.path)),
+                    child: Assets.images.figureLogo.image()),
                 Form(
                   key: _formKey,
                   child: const Column(
@@ -45,18 +45,22 @@ class LogInPage extends ConsumerWidget {
                   },
                   child: Text(
                     'ログイン',
-                    style: AppTextstyle.bold(12, color: MyColor.darkgreen),
+                    style: AppTextstyle.bold(
+                        fontSize: 12, color: MyColor.darkgreen),
                   ),
                 ),
                 TextButton(
-                    onPressed: () {
-                      //TODO 新規登録画面作成時に遷移を記述
-                      context.go('/');
-                    },
-                    child: Text(
-                      '新規登録はこちら',
-                      style: AppTextstyle.bold(12, color: MyColor.darkYellow),
-                    ))
+                  onPressed: () {
+                    //TODO 新規登録画面作成時に遷移を記述
+                    context.go('/');
+                  },
+                  child: Text(
+                    '新規登録はこちら',
+                    style: AppTextstyle.bold(
+                        fontSize: 12, color: MyColor.darkYellow),
+                  ),
+                  
+                )
               ],
             ),
           ),
