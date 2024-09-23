@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:training_app/presentation/page/page/home_page.dart';
-import 'package:training_app/presentation/page/page/log_in.dart';
+import 'package:training_app/presentation/page/home/home_page.dart';
+import 'package:training_app/presentation/page/log_in.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: true,
