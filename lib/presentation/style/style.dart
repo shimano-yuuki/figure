@@ -4,27 +4,28 @@ import 'package:training_app/presentation/style/colors.dart';
 class AppTextstyle {
   static const fontFamily = "NotoSanzJP";
 
-  static TextStyle light(double fontSize, {Color color = MyColor.black}) =>
+  static TextStyle light({Color color = MyColor.black, double fontSize = 14}) =>
       TextStyle(
           fontFamily: fontFamily,
           fontSize: fontSize,
           color: color,
           fontWeight: FontWeight.w300);
-  static TextStyle regular(double fontSize, {Color color = MyColor.black}) =>
+  static TextStyle regular(
+          {Color color = MyColor.black, double fontSize = 14}) =>
       TextStyle(
           fontFamily: fontFamily,
           fontSize: fontSize,
           color: color,
           fontWeight: FontWeight.w400);
 
-  static TextStyle medium(double fontSize, {Color color = Colors.black}) =>
+  static TextStyle medium({Color color = Colors.black, double fontSize = 14}) =>
       TextStyle(
           fontFamily: fontFamily,
           fontSize: fontSize,
           color: color,
           fontWeight: FontWeight.w500);
 
-  static TextStyle bold(double fontSize, {Color color = MyColor.black}) =>
+  static TextStyle bold({Color color = MyColor.black, double fontSize = 14}) =>
       TextStyle(
           fontFamily: fontFamily,
           fontSize: fontSize,
