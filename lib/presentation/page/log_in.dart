@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:training_app/presentation/components/email_text_form_field.dart';
+import 'package:training_app/presentation/components/password_text_form_field.dart';
 import 'package:training_app/presentation/style/colors.dart';
 import 'package:training_app/presentation/gen/assets.gen.dart';
-import 'package:training_app/presentation/page/page/widgets/email_text_form_field.dart';
-import 'package:training_app/presentation/page/page/widgets/password_text_form_field.dart';
+
 import 'package:training_app/presentation/style/style.dart';
 
 class LogInPage extends ConsumerWidget {
@@ -59,7 +60,6 @@ class LogInPage extends ConsumerWidget {
                     style: AppTextstyle.bold(
                         fontSize: 12, color: MyColor.darkYellow),
                   ),
-                  
                 )
               ],
             ),
