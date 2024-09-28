@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:training_app/presentation/style/colors.dart';
 
 class AppTextstyle {
+  //fontSizeがdefaultで14変更したいときは引数で指定する。
   static const fontFamily = "NotoSanzJP";
 
   static TextStyle light({Color color = MyColor.black, double fontSize = 14}) =>
