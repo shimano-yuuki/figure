@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:training_app/presentation/style/colors.dart';
-import 'package:training_app/router.dart';
+import 'package:training_app/presentation/app_router.dart';
 
 void main() {
   runApp(const MyApp());
