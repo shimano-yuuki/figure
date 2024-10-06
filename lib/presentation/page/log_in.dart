@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:training_app/core/extention/string_extention.dart';
 import 'package:training_app/presentation/components/custom_text_form_field.dart';
+import 'package:training_app/presentation/notifier_provider/log_in_page/log_in_page_notifier.dart';
 import 'package:training_app/presentation/style/colors.dart';
 import 'package:training_app/presentation/gen/assets.gen.dart';
 
 import 'package:training_app/presentation/style/style.dart';
+import 'package:training_app/presentation/validation/validate.dart';
 
 class LogInPage extends ConsumerWidget {
   LogInPage({super.key});
@@ -29,35 +30,29 @@ class LogInPage extends ConsumerWidget {
                   key: _formKey,
                   child: Column(
                     children: [
-                      //e-mail
+                      //メールアドレス
                       CustomTextFormField(
                         labelText: 'e-mail',
                         validate: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'メールアドレスを入力してください。';
-                          } else if (!value.emailFormValidation) {
-                            return 'メールアドレスの形式が違います。';
-                          }
-                          return null;
+                          Validate.eMailValidation(value);
                         },
                         onChanged: (value) {
-                          //TODO :valueでstateを管理する。
+                          ref
+                              .watch(logInPageNotifierProvider.notifier)
+                              .updateEmail(value);
                         },
                       ),
                       const SizedBox(height: 10),
-                      //password
+                      //パスワード
                       CustomTextFormField(
                         labelText: 'password',
                         validate: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'パスワードを入力してください。';
-                          } else if (!value.passFormWordValidation) {
-                            return 'パスワードの形式が違います。';
-                          }
-                          return null;
+                          Validate.passwordValidation(value);
                         },
                         onChanged: (value) {
-                          //TODO :valueでstateを管理する。
+                          ref
+                              .watch(logInPageNotifierProvider.notifier)
+                              .updatePassword(value);
                         },
                       ),
                     ],
