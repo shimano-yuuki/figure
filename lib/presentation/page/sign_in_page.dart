@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:training_app/core/extention/string_extention.dart';
 import 'package:training_app/presentation/components/custom_text_form_field.dart';
 import 'package:training_app/presentation/style/colors.dart';
@@ -8,8 +7,8 @@ import 'package:training_app/presentation/gen/assets.gen.dart';
 
 import 'package:training_app/presentation/style/style.dart';
 
-class LogInPage extends ConsumerWidget {
-  LogInPage({super.key});
+class SignInPage extends ConsumerWidget {
+  SignInPage({super.key});
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -31,7 +30,7 @@ class LogInPage extends ConsumerWidget {
                     children: [
                       //e-mail
                       CustomTextFormField(
-                        labelText: 'e-mail',
+                        labelText: 'e-mail（登録）',
                         validate: (value) {
                           if (value == null || value.isEmpty) {
                             return 'メールアドレスを入力してください。';
@@ -47,7 +46,21 @@ class LogInPage extends ConsumerWidget {
                       const SizedBox(height: 10),
                       //password
                       CustomTextFormField(
-                        labelText: 'password',
+                        labelText: 'password（登録）',
+                        validate: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'パスワードを入力してください。';
+                          } else if (!value.passFormWordValidation) {
+                            return 'パスワードの形式が違います。';
+                          }
+                          return null;
+                        },
+                        onChanged: (value) {
+                          //TODO :valueでstateを管理する。
+                        },
+                      ),
+                      CustomTextFormField(
+                        labelText: 'password（確認）',
                         validate: (value) {
                           if (value == null || value.isEmpty) {
                             return 'パスワードを入力してください。';
@@ -68,27 +81,23 @@ class LogInPage extends ConsumerWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: MyColor.darkYellow),
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // context.go('/home');
-                    }
+                    //TODO: ホーム画面に遷移
+                    // if (_formKey.currentState!.validate()) {
+                    //   context.go('/home');
+                    // }
                   },
                   child: Text(
-                    'ログイン',
+                    '新規登録',
                     style: AppTextstyle.bold(
                         fontSize: 12, color: MyColor.darkgreen),
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    //TODO 新規登録画面作成時に遷移を記述
-                    context.go('/sign_in_page');
-                  },
-                  child: Text(
-                    '新規登録はこちら',
-                    style: AppTextstyle.bold(
-                        fontSize: 12, color: MyColor.darkYellow),
-                  ),
-                ),
+                const SizedBox(height: 20),
+                Text(
+                  'パスワードには大文字、小文字、数字を含めてください',
+                  style: AppTextstyle.regular(
+                      fontSize: 10, color: MyColor.darkYellow),
+                )
               ],
             ),
           ),
