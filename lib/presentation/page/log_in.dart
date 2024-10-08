@@ -15,6 +15,7 @@ class LogInPage extends ConsumerWidget {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final logInProvider = ref.watch(logInNotifierProvider.notifier);
     return Scaffold(
       backgroundColor: MyColor.darkgreen,
       body: Padding(
@@ -35,13 +36,10 @@ class LogInPage extends ConsumerWidget {
                       CustomTextFormField(
                         labelText: 'e-mail',
                         validate: (value) {
-                          Validate.eMailValidation(value);
-                          return null;
+                          return Validate.eMailValidation(value);
                         },
                         onChanged: (value) {
-                          ref
-                              .watch(logInNotifierProvider.notifier)
-                              .updateEmail(value);
+                          logInProvider.updateEmail(value);
                         },
                       ),
                       const SizedBox(height: 10),
@@ -49,13 +47,10 @@ class LogInPage extends ConsumerWidget {
                       CustomTextFormField(
                         labelText: 'password',
                         validate: (value) {
-                          Validate.passwordValidation(value);
-                          return null;
+                          return Validate.passwordValidation(value);
                         },
                         onChanged: (value) {
-                          ref
-                              .watch(logInNotifierProvider.notifier)
-                              .updatePassword(value);
+                          logInProvider.updatePassword(value);
                         },
                       ),
                     ],

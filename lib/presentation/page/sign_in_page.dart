@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:training_app/core/extention/string_extention.dart';
 import 'package:training_app/presentation/app_router.dart';
 import 'package:training_app/presentation/components/custom_text_form_field.dart';
+import 'package:training_app/presentation/notifier_provider/sign_in_notifier_provider/sign_in_notifier.dart';
 import 'package:training_app/presentation/style/colors.dart';
 import 'package:training_app/presentation/gen/assets.gen.dart';
 
@@ -15,6 +16,8 @@ class SignInPage extends ConsumerWidget {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final signInState = ref.watch(signInNotifierProvider);
+    final signInProvider = ref.watch(signInNotifierProvider.notifier);
     return Scaffold(
       backgroundColor: MyColor.darkgreen,
       body: Padding(
@@ -35,11 +38,10 @@ class SignInPage extends ConsumerWidget {
                       CustomTextFormField(
                         labelText: 'e-mail（登録）',
                         validate: (value) {
-                          Validate.eMailValidation(value);
-                          return null;
+                          return Validate.eMailValidation(value);
                         },
                         onChanged: (value) {
-                          //TODO :valueでstateを管理する。
+                          signInProvider.updateRegistrationEmail(value);
                         },
                       ),
                       const SizedBox(height: 10),
@@ -47,25 +49,20 @@ class SignInPage extends ConsumerWidget {
                       CustomTextFormField(
                         labelText: 'password（登録）',
                         validate: (value) {
-                          Validate.passwordValidation(value);
-                          return null;
+                          return Validate.passwordValidation(value);
                         },
                         onChanged: (value) {
-                          //TODO :valueでstateを管理する。
+                          signInProvider.updateRegistrationPassword(value);
                         },
                       ),
                       CustomTextFormField(
                         labelText: 'password（確認）',
                         validate: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'パスワードを入力してください。';
-                          } else if (!value.passFormWordValidation) {
-                            return 'パスワードの形式が違います。';
-                          }
-                          return null;
+                          return Validate.passwordConfirmValidation(
+                              value, signInState.passwordConfirm);
                         },
                         onChanged: (value) {
-                          //TODO :valueでstateを管理する。
+                          signInProvider.updateConfirmPassword(value);
                         },
                       ),
                     ],

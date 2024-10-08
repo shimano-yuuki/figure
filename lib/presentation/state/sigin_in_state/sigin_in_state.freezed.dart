@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SignInState {
-  String get registrationEMail => throw _privateConstructorUsedError;
-  String get confirmEMail => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
+  String get eMailRegistration => throw _privateConstructorUsedError;
+  String get passwordRegistration => throw _privateConstructorUsedError;
+  String get passwordConfirm => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignInStateCopyWith<SignInState> get copyWith =>
@@ -31,7 +31,10 @@ abstract class $SignInStateCopyWith<$Res> {
           SignInState value, $Res Function(SignInState) then) =
       _$SignInStateCopyWithImpl<$Res, SignInState>;
   @useResult
-  $Res call({String registrationEMail, String confirmEMail, String password});
+  $Res call(
+      {String eMailRegistration,
+      String passwordRegistration,
+      String passwordConfirm});
 }
 
 /// @nodoc
@@ -47,22 +50,22 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? registrationEMail = null,
-    Object? confirmEMail = null,
-    Object? password = null,
+    Object? eMailRegistration = null,
+    Object? passwordRegistration = null,
+    Object? passwordConfirm = null,
   }) {
     return _then(_value.copyWith(
-      registrationEMail: null == registrationEMail
-          ? _value.registrationEMail
-          : registrationEMail // ignore: cast_nullable_to_non_nullable
+      eMailRegistration: null == eMailRegistration
+          ? _value.eMailRegistration
+          : eMailRegistration // ignore: cast_nullable_to_non_nullable
               as String,
-      confirmEMail: null == confirmEMail
-          ? _value.confirmEMail
-          : confirmEMail // ignore: cast_nullable_to_non_nullable
+      passwordRegistration: null == passwordRegistration
+          ? _value.passwordRegistration
+          : passwordRegistration // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      passwordConfirm: null == passwordConfirm
+          ? _value.passwordConfirm
+          : passwordConfirm // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -76,7 +79,10 @@ abstract class _$$SignInStateImplCopyWith<$Res>
       __$$SignInStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String registrationEMail, String confirmEMail, String password});
+  $Res call(
+      {String eMailRegistration,
+      String passwordRegistration,
+      String passwordConfirm});
 }
 
 /// @nodoc
@@ -90,22 +96,22 @@ class __$$SignInStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? registrationEMail = null,
-    Object? confirmEMail = null,
-    Object? password = null,
+    Object? eMailRegistration = null,
+    Object? passwordRegistration = null,
+    Object? passwordConfirm = null,
   }) {
     return _then(_$SignInStateImpl(
-      registrationEMail: null == registrationEMail
-          ? _value.registrationEMail
-          : registrationEMail // ignore: cast_nullable_to_non_nullable
+      eMailRegistration: null == eMailRegistration
+          ? _value.eMailRegistration
+          : eMailRegistration // ignore: cast_nullable_to_non_nullable
               as String,
-      confirmEMail: null == confirmEMail
-          ? _value.confirmEMail
-          : confirmEMail // ignore: cast_nullable_to_non_nullable
+      passwordRegistration: null == passwordRegistration
+          ? _value.passwordRegistration
+          : passwordRegistration // ignore: cast_nullable_to_non_nullable
               as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
+      passwordConfirm: null == passwordConfirm
+          ? _value.passwordConfirm
+          : passwordConfirm // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -115,23 +121,23 @@ class __$$SignInStateImplCopyWithImpl<$Res>
 
 class _$SignInStateImpl implements _SignInState {
   _$SignInStateImpl(
-      {this.registrationEMail = '',
-      this.confirmEMail = '',
-      this.password = ''});
+      {this.eMailRegistration = '',
+      this.passwordRegistration = '',
+      this.passwordConfirm = ''});
 
   @override
   @JsonKey()
-  final String registrationEMail;
+  final String eMailRegistration;
   @override
   @JsonKey()
-  final String confirmEMail;
+  final String passwordRegistration;
   @override
   @JsonKey()
-  final String password;
+  final String passwordConfirm;
 
   @override
   String toString() {
-    return 'SignInState(registrationEMail: $registrationEMail, confirmEMail: $confirmEMail, password: $password)';
+    return 'SignInState(eMailRegistration: $eMailRegistration, passwordRegistration: $passwordRegistration, passwordConfirm: $passwordConfirm)';
   }
 
   @override
@@ -139,17 +145,17 @@ class _$SignInStateImpl implements _SignInState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignInStateImpl &&
-            (identical(other.registrationEMail, registrationEMail) ||
-                other.registrationEMail == registrationEMail) &&
-            (identical(other.confirmEMail, confirmEMail) ||
-                other.confirmEMail == confirmEMail) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.eMailRegistration, eMailRegistration) ||
+                other.eMailRegistration == eMailRegistration) &&
+            (identical(other.passwordRegistration, passwordRegistration) ||
+                other.passwordRegistration == passwordRegistration) &&
+            (identical(other.passwordConfirm, passwordConfirm) ||
+                other.passwordConfirm == passwordConfirm));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, registrationEMail, confirmEMail, password);
+  int get hashCode => Object.hash(
+      runtimeType, eMailRegistration, passwordRegistration, passwordConfirm);
 
   @JsonKey(ignore: true)
   @override
@@ -160,16 +166,16 @@ class _$SignInStateImpl implements _SignInState {
 
 abstract class _SignInState implements SignInState {
   factory _SignInState(
-      {final String registrationEMail,
-      final String confirmEMail,
-      final String password}) = _$SignInStateImpl;
+      {final String eMailRegistration,
+      final String passwordRegistration,
+      final String passwordConfirm}) = _$SignInStateImpl;
 
   @override
-  String get registrationEMail;
+  String get eMailRegistration;
   @override
-  String get confirmEMail;
+  String get passwordRegistration;
   @override
-  String get password;
+  String get passwordConfirm;
   @override
   @JsonKey(ignore: true)
   _$$SignInStateImplCopyWith<_$SignInStateImpl> get copyWith =>

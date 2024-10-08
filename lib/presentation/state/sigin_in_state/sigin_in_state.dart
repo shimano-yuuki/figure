@@ -5,8 +5,8 @@ part 'sigin_in_state.freezed.dart';
 @freezed // freezedを使うためのアノテーション
 class SignInState with _$SignInState {
   factory SignInState({
-    @Default('') String registrationEMail,
-    @Default('') String confirmEMail,
-    @Default('') String password,
+    @Default('') String eMailRegistration,
+    @Default('') String passwordRegistration,
+    @Default('') String passwordConfirm,
   }) = _SignInState;
 }
