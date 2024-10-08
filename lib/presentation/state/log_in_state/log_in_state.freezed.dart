@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'log_in_page_state.dart';
+part of 'log_in_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,28 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LogInPageState {
+mixin _$LogInState {
   String get eMail => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LogInPageStateCopyWith<LogInPageState> get copyWith =>
+  $LogInStateCopyWith<LogInState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LogInPageStateCopyWith<$Res> {
-  factory $LogInPageStateCopyWith(
-          LogInPageState value, $Res Function(LogInPageState) then) =
-      _$LogInPageStateCopyWithImpl<$Res, LogInPageState>;
+abstract class $LogInStateCopyWith<$Res> {
+  factory $LogInStateCopyWith(
+          LogInState value, $Res Function(LogInState) then) =
+      _$LogInStateCopyWithImpl<$Res, LogInState>;
   @useResult
   $Res call({String eMail, String password});
 }
 
 /// @nodoc
-class _$LogInPageStateCopyWithImpl<$Res, $Val extends LogInPageState>
-    implements $LogInPageStateCopyWith<$Res> {
-  _$LogInPageStateCopyWithImpl(this._value, this._then);
+class _$LogInStateCopyWithImpl<$Res, $Val extends LogInState>
+    implements $LogInStateCopyWith<$Res> {
+  _$LogInStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,22 +63,22 @@ class _$LogInPageStateCopyWithImpl<$Res, $Val extends LogInPageState>
 }
 
 /// @nodoc
-abstract class _$$LogInPageStateImplCopyWith<$Res>
-    implements $LogInPageStateCopyWith<$Res> {
-  factory _$$LogInPageStateImplCopyWith(_$LogInPageStateImpl value,
-          $Res Function(_$LogInPageStateImpl) then) =
-      __$$LogInPageStateImplCopyWithImpl<$Res>;
+abstract class _$$LogInStateImplCopyWith<$Res>
+    implements $LogInStateCopyWith<$Res> {
+  factory _$$LogInStateImplCopyWith(
+          _$LogInStateImpl value, $Res Function(_$LogInStateImpl) then) =
+      __$$LogInStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String eMail, String password});
 }
 
 /// @nodoc
-class __$$LogInPageStateImplCopyWithImpl<$Res>
-    extends _$LogInPageStateCopyWithImpl<$Res, _$LogInPageStateImpl>
-    implements _$$LogInPageStateImplCopyWith<$Res> {
-  __$$LogInPageStateImplCopyWithImpl(
-      _$LogInPageStateImpl _value, $Res Function(_$LogInPageStateImpl) _then)
+class __$$LogInStateImplCopyWithImpl<$Res>
+    extends _$LogInStateCopyWithImpl<$Res, _$LogInStateImpl>
+    implements _$$LogInStateImplCopyWith<$Res> {
+  __$$LogInStateImplCopyWithImpl(
+      _$LogInStateImpl _value, $Res Function(_$LogInStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$LogInPageStateImplCopyWithImpl<$Res>
     Object? eMail = null,
     Object? password = null,
   }) {
-    return _then(_$LogInPageStateImpl(
+    return _then(_$LogInStateImpl(
       eMail: null == eMail
           ? _value.eMail
           : eMail // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$$LogInPageStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LogInPageStateImpl implements _LogInPageState {
-  _$LogInPageStateImpl({this.eMail = '', this.password = ''});
+class _$LogInStateImpl implements _LogInState {
+  _$LogInStateImpl({this.eMail = '', this.password = ''});
 
   @override
   @JsonKey()
@@ -114,14 +114,14 @@ class _$LogInPageStateImpl implements _LogInPageState {
 
   @override
   String toString() {
-    return 'LogInPageState(eMail: $eMail, password: $password)';
+    return 'LogInState(eMail: $eMail, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LogInPageStateImpl &&
+            other is _$LogInStateImpl &&
             (identical(other.eMail, eMail) || other.eMail == eMail) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -133,14 +133,13 @@ class _$LogInPageStateImpl implements _LogInPageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LogInPageStateImplCopyWith<_$LogInPageStateImpl> get copyWith =>
-      __$$LogInPageStateImplCopyWithImpl<_$LogInPageStateImpl>(
-          this, _$identity);
+  _$$LogInStateImplCopyWith<_$LogInStateImpl> get copyWith =>
+      __$$LogInStateImplCopyWithImpl<_$LogInStateImpl>(this, _$identity);
 }
 
-abstract class _LogInPageState implements LogInPageState {
-  factory _LogInPageState({final String eMail, final String password}) =
-      _$LogInPageStateImpl;
+abstract class _LogInState implements LogInState {
+  factory _LogInState({final String eMail, final String password}) =
+      _$LogInStateImpl;
 
   @override
   String get eMail;
@@ -148,6 +147,6 @@ abstract class _LogInPageState implements LogInPageState {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$LogInPageStateImplCopyWith<_$LogInPageStateImpl> get copyWith =>
+  _$$LogInStateImplCopyWith<_$LogInStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

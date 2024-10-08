@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:training_app/presentation/app_router.dart';
 import 'package:training_app/presentation/components/custom_text_form_field.dart';
-import 'package:training_app/presentation/notifier_provider/log_in_page/log_in_page_notifier.dart';
+import 'package:training_app/presentation/notifier_provider/log_in_notifier_provider/log_in_notifier.dart';
 import 'package:training_app/presentation/style/colors.dart';
 import 'package:training_app/presentation/gen/assets.gen.dart';
 
@@ -35,10 +36,11 @@ class LogInPage extends ConsumerWidget {
                         labelText: 'e-mail',
                         validate: (value) {
                           Validate.eMailValidation(value);
+                          return null;
                         },
                         onChanged: (value) {
                           ref
-                              .watch(logInPageNotifierProvider.notifier)
+                              .watch(logInNotifierProvider.notifier)
                               .updateEmail(value);
                         },
                       ),
@@ -48,10 +50,11 @@ class LogInPage extends ConsumerWidget {
                         labelText: 'password',
                         validate: (value) {
                           Validate.passwordValidation(value);
+                          return null;
                         },
                         onChanged: (value) {
                           ref
-                              .watch(logInPageNotifierProvider.notifier)
+                              .watch(logInNotifierProvider.notifier)
                               .updatePassword(value);
                         },
                       ),
@@ -62,27 +65,26 @@ class LogInPage extends ConsumerWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: MyColor.darkYellow),
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // context.go('/home');
-                    }
-                  },
                   child: Text(
                     'ログイン',
                     style: AppTextstyle.bold(
                         fontSize: 12, color: MyColor.darkgreen),
                   ),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context.goNamed(RouteNames.homePage);
+                    }
+                  },
                 ),
                 TextButton(
-                  onPressed: () {
-                    //TODO 新規登録画面作成時に遷移を記述
-                    context.go('/sign_in_page');
-                  },
                   child: Text(
                     '新規登録はこちら',
                     style: AppTextstyle.bold(
                         fontSize: 12, color: MyColor.darkYellow),
                   ),
+                  onPressed: () {
+                    context.goNamed(RouteNames.signInPage);
+                  },
                 ),
               ],
             ),
