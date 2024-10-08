@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:training_app/presentation/app_router.dart';
 import 'package:training_app/presentation/components/custom_text_form_field.dart';
-import 'package:training_app/presentation/notifier_provider/log_in_notifier_provider/log_in_page_notifier.dart';
+import 'package:training_app/presentation/notifier_provider/log_in_notifier_provider/log_in_notifier.dart';
 import 'package:training_app/presentation/style/colors.dart';
 import 'package:training_app/presentation/gen/assets.gen.dart';
 
@@ -40,7 +40,7 @@ class LogInPage extends ConsumerWidget {
                         },
                         onChanged: (value) {
                           ref
-                              .watch(logInPageNotifierProvider.notifier)
+                              .watch(logInNotifierProvider.notifier)
                               .updateEmail(value);
                         },
                       ),
@@ -54,7 +54,7 @@ class LogInPage extends ConsumerWidget {
                         },
                         onChanged: (value) {
                           ref
-                              .watch(logInPageNotifierProvider.notifier)
+                              .watch(logInNotifierProvider.notifier)
                               .updatePassword(value);
                         },
                       ),
