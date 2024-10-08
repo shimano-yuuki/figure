@@ -8,17 +8,17 @@ class SignInNotifier extends _$SignInNotifier {
   SignInState build() => SignInState();
 
   // email（登録）の更新
-  void updateRegistrationEmail(String registrationEMail) {
-    state = state.copyWith(registrationEMail: registrationEMail);
+  void updateRegistrationEmail(String eMailRegistration) {
+    state = state.copyWith(eMailRegistration: eMailRegistration);
   }
 
-  // email（登録）の更新
-  void updateConfirmEmail(String confirmEMail) {
-    state = state.copyWith(confirmEMail: confirmEMail);
+  // password（登録）の更新
+  void updateRegistrationPassword(String passwordRegistration) {
+    state = state.copyWith(passwordRegistration: passwordRegistration);
   }
 
-  // パスワード更新
-  void updatePassword(String password) {
-    state = state.copyWith(password: password);
+  // password（確認）の更新
+  void updateConfirmPassword(String passwordConfirm) {
+    state = state.copyWith(passwordConfirm: passwordConfirm);
   }
 }
