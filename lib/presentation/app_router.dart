@@ -5,22 +5,28 @@ import 'package:training_app/presentation/page/sign_in_page.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: true,
-  initialLocation: '/',
+  initialLocation: '/logInPage',
   routes: [
     GoRoute(
-      name: 'log_in',
-      path: '/',
+      name: RouteNames.logInPage,
+      path: '/logInPage',
       builder: (context, state) => LogInPage(),
     ),
     GoRoute(
-      name: 'home',
-      path: '/home',
+      name: RouteNames.homePage,
+      path: '/homePage',
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      name: 'sign_in_page',
-      path: '/sign_in_page',
+      name: RouteNames.signInPage,
+      path: '/signInPage',
       builder: (context, state) => SignInPage(),
     )
   ],
 );
+
+class RouteNames {
+  static const logInPage = 'logInPage';
+  static const homePage = 'homePage';
+  static const signInPage = 'signInPage';
+}

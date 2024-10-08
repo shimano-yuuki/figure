@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:training_app/core/extention/string_extention.dart';
+import 'package:training_app/presentation/app_router.dart';
 import 'package:training_app/presentation/components/custom_text_form_field.dart';
 import 'package:training_app/presentation/style/colors.dart';
 import 'package:training_app/presentation/gen/assets.gen.dart';
 
 import 'package:training_app/presentation/style/style.dart';
+import 'package:training_app/presentation/validation/validate.dart';
 
 class SignInPage extends ConsumerWidget {
   SignInPage({super.key});
@@ -32,11 +35,7 @@ class SignInPage extends ConsumerWidget {
                       CustomTextFormField(
                         labelText: 'e-mail（登録）',
                         validate: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'メールアドレスを入力してください。';
-                          } else if (!value.emailFormValidation) {
-                            return 'メールアドレスの形式が違います。';
-                          }
+                          Validate.eMailValidation(value);
                           return null;
                         },
                         onChanged: (value) {
@@ -48,11 +47,7 @@ class SignInPage extends ConsumerWidget {
                       CustomTextFormField(
                         labelText: 'password（登録）',
                         validate: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'パスワードを入力してください。';
-                          } else if (!value.passFormWordValidation) {
-                            return 'パスワードの形式が違います。';
-                          }
+                          Validate.passwordValidation(value);
                           return null;
                         },
                         onChanged: (value) {
@@ -80,17 +75,16 @@ class SignInPage extends ConsumerWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: MyColor.darkYellow),
-                  onPressed: () {
-                    //TODO: ホーム画面に遷移
-                    // if (_formKey.currentState!.validate()) {
-                    //   context.go('/home');
-                    // }
-                  },
                   child: Text(
                     '新規登録',
                     style: AppTextstyle.bold(
                         fontSize: 12, color: MyColor.darkgreen),
                   ),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      context.goNamed(RouteNames.homePage);
+                    }
+                  },
                 ),
                 const SizedBox(height: 20),
                 Text(
