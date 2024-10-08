@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:training_app/presentation/state/log_in_page/log_in_page_state.dart';
+import 'package:training_app/presentation/state/log_in_state/log_in_page_state.dart';
 
 part 'log_in_page_notifier.g.dart';
 
