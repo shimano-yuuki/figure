@@ -33,7 +33,7 @@ class SignInPage extends ConsumerWidget {
                   key: _formKey,
                   child: Column(
                     children: [
-                      //e-mail
+                      //e-mail（登録）
                       CustomTextFormField(
                         labelText: 'e-mail（登録）',
                         validate: (value) {
@@ -44,22 +44,43 @@ class SignInPage extends ConsumerWidget {
                         },
                       ),
                       const SizedBox(height: 10),
-                      //password
+                      //password(登録)
                       CustomTextFormField(
                         labelText: 'password（登録）',
                         validate: (value) {
                           return Validate.passwordValidation(value);
                         },
+                        obscureText: signInState.passwordObscureRegistration,
+                        obscureWidget: IconButton(
+                          icon: Icon(signInState.passwordObscureRegistration
+                              ? Icons.visibility_off
+                              : Icons.visibility),
+                          onPressed: () {
+                            signInProvider.updateRegistratioObscure(
+                                signInState.passwordObscureRegistration);
+                          },
+                        ),
                         onChanged: (value) {
                           signInProvider.updateRegistrationPassword(value);
                         },
                       ),
+                      //password（確認）
                       CustomTextFormField(
                         labelText: 'password（確認）',
                         validate: (value) {
                           return Validate.passwordConfirmValidation(
                               value, signInState.passwordConfirm);
                         },
+                        obscureText: signInState.passwordObscureConfirm,
+                        obscureWidget: IconButton(
+                          icon: Icon(signInState.passwordObscureConfirm
+                              ? Icons.visibility_off
+                              : Icons.visibility),
+                          onPressed: () {
+                            signInProvider.updateConfirmObscure(
+                                signInState.passwordObscureConfirm);
+                          },
+                        ),
                         onChanged: (value) {
                           signInProvider.updateConfirmPassword(value);
                         },
