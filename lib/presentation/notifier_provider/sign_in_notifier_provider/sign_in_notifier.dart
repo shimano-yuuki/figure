@@ -21,4 +21,16 @@ class SignInNotifier extends _$SignInNotifier {
   void updateConfirmPassword(String passwordConfirm) {
     state = state.copyWith(passwordConfirm: passwordConfirm);
   }
+
+  //パスワード登録用のobscure
+  //真偽地を反転して更新
+  void updateRegistratioObscure(bool obscureRegistration) {
+    state = state.copyWith(passwordObscureRegistration: !obscureRegistration);
+  }
+
+  //パスワード確認用のobscure
+  //真偽地を反転して更新
+  void updateConfirmObscure(bool obscureConfirm) {
+    state = state.copyWith(passwordObscureConfirm: !obscureConfirm);
+  }
 }

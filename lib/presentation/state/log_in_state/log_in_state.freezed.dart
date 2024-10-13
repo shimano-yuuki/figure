@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LogInState {
   String get eMail => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  bool get obscure => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LogInStateCopyWith<LogInState> get copyWith =>
@@ -30,7 +31,7 @@ abstract class $LogInStateCopyWith<$Res> {
           LogInState value, $Res Function(LogInState) then) =
       _$LogInStateCopyWithImpl<$Res, LogInState>;
   @useResult
-  $Res call({String eMail, String password});
+  $Res call({String eMail, String password, bool obscure});
 }
 
 /// @nodoc
@@ -48,6 +49,7 @@ class _$LogInStateCopyWithImpl<$Res, $Val extends LogInState>
   $Res call({
     Object? eMail = null,
     Object? password = null,
+    Object? obscure = null,
   }) {
     return _then(_value.copyWith(
       eMail: null == eMail
@@ -58,6 +60,10 @@ class _$LogInStateCopyWithImpl<$Res, $Val extends LogInState>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      obscure: null == obscure
+          ? _value.obscure
+          : obscure // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -70,7 +76,7 @@ abstract class _$$LogInStateImplCopyWith<$Res>
       __$$LogInStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String eMail, String password});
+  $Res call({String eMail, String password, bool obscure});
 }
 
 /// @nodoc
@@ -86,6 +92,7 @@ class __$$LogInStateImplCopyWithImpl<$Res>
   $Res call({
     Object? eMail = null,
     Object? password = null,
+    Object? obscure = null,
   }) {
     return _then(_$LogInStateImpl(
       eMail: null == eMail
@@ -96,6 +103,10 @@ class __$$LogInStateImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      obscure: null == obscure
+          ? _value.obscure
+          : obscure // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,7 +114,7 @@ class __$$LogInStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LogInStateImpl implements _LogInState {
-  _$LogInStateImpl({this.eMail = '', this.password = ''});
+  _$LogInStateImpl({this.eMail = '', this.password = '', this.obscure = false});
 
   @override
   @JsonKey()
@@ -111,10 +122,13 @@ class _$LogInStateImpl implements _LogInState {
   @override
   @JsonKey()
   final String password;
+  @override
+  @JsonKey()
+  final bool obscure;
 
   @override
   String toString() {
-    return 'LogInState(eMail: $eMail, password: $password)';
+    return 'LogInState(eMail: $eMail, password: $password, obscure: $obscure)';
   }
 
   @override
@@ -124,11 +138,12 @@ class _$LogInStateImpl implements _LogInState {
             other is _$LogInStateImpl &&
             (identical(other.eMail, eMail) || other.eMail == eMail) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.obscure, obscure) || other.obscure == obscure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, eMail, password);
+  int get hashCode => Object.hash(runtimeType, eMail, password, obscure);
 
   @JsonKey(ignore: true)
   @override
@@ -138,13 +153,17 @@ class _$LogInStateImpl implements _LogInState {
 }
 
 abstract class _LogInState implements LogInState {
-  factory _LogInState({final String eMail, final String password}) =
-      _$LogInStateImpl;
+  factory _LogInState(
+      {final String eMail,
+      final String password,
+      final bool obscure}) = _$LogInStateImpl;
 
   @override
   String get eMail;
   @override
   String get password;
+  @override
+  bool get obscure;
   @override
   @JsonKey(ignore: true)
   _$$LogInStateImplCopyWith<_$LogInStateImpl> get copyWith =>

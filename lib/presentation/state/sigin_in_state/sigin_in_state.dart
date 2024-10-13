@@ -8,5 +8,7 @@ class SignInState with _$SignInState {
     @Default('') String eMailRegistration,
     @Default('') String passwordRegistration,
     @Default('') String passwordConfirm,
+    @Default(false) bool passwordObscureRegistration,
+    @Default(false) bool passwordObscureConfirm,
   }) = _SignInState;
 }

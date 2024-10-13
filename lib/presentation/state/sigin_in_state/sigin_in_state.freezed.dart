@@ -19,6 +19,8 @@ mixin _$SignInState {
   String get eMailRegistration => throw _privateConstructorUsedError;
   String get passwordRegistration => throw _privateConstructorUsedError;
   String get passwordConfirm => throw _privateConstructorUsedError;
+  bool get passwordObscureRegistration => throw _privateConstructorUsedError;
+  bool get passwordObscureConfirm => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignInStateCopyWith<SignInState> get copyWith =>
@@ -34,7 +36,9 @@ abstract class $SignInStateCopyWith<$Res> {
   $Res call(
       {String eMailRegistration,
       String passwordRegistration,
-      String passwordConfirm});
+      String passwordConfirm,
+      bool passwordObscureRegistration,
+      bool passwordObscureConfirm});
 }
 
 /// @nodoc
@@ -53,6 +57,8 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
     Object? eMailRegistration = null,
     Object? passwordRegistration = null,
     Object? passwordConfirm = null,
+    Object? passwordObscureRegistration = null,
+    Object? passwordObscureConfirm = null,
   }) {
     return _then(_value.copyWith(
       eMailRegistration: null == eMailRegistration
@@ -67,6 +73,14 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
           ? _value.passwordConfirm
           : passwordConfirm // ignore: cast_nullable_to_non_nullable
               as String,
+      passwordObscureRegistration: null == passwordObscureRegistration
+          ? _value.passwordObscureRegistration
+          : passwordObscureRegistration // ignore: cast_nullable_to_non_nullable
+              as bool,
+      passwordObscureConfirm: null == passwordObscureConfirm
+          ? _value.passwordObscureConfirm
+          : passwordObscureConfirm // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -82,7 +96,9 @@ abstract class _$$SignInStateImplCopyWith<$Res>
   $Res call(
       {String eMailRegistration,
       String passwordRegistration,
-      String passwordConfirm});
+      String passwordConfirm,
+      bool passwordObscureRegistration,
+      bool passwordObscureConfirm});
 }
 
 /// @nodoc
@@ -99,6 +115,8 @@ class __$$SignInStateImplCopyWithImpl<$Res>
     Object? eMailRegistration = null,
     Object? passwordRegistration = null,
     Object? passwordConfirm = null,
+    Object? passwordObscureRegistration = null,
+    Object? passwordObscureConfirm = null,
   }) {
     return _then(_$SignInStateImpl(
       eMailRegistration: null == eMailRegistration
@@ -113,6 +131,14 @@ class __$$SignInStateImplCopyWithImpl<$Res>
           ? _value.passwordConfirm
           : passwordConfirm // ignore: cast_nullable_to_non_nullable
               as String,
+      passwordObscureRegistration: null == passwordObscureRegistration
+          ? _value.passwordObscureRegistration
+          : passwordObscureRegistration // ignore: cast_nullable_to_non_nullable
+              as bool,
+      passwordObscureConfirm: null == passwordObscureConfirm
+          ? _value.passwordObscureConfirm
+          : passwordObscureConfirm // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -123,7 +149,9 @@ class _$SignInStateImpl implements _SignInState {
   _$SignInStateImpl(
       {this.eMailRegistration = '',
       this.passwordRegistration = '',
-      this.passwordConfirm = ''});
+      this.passwordConfirm = '',
+      this.passwordObscureRegistration = false,
+      this.passwordObscureConfirm = false});
 
   @override
   @JsonKey()
@@ -134,10 +162,16 @@ class _$SignInStateImpl implements _SignInState {
   @override
   @JsonKey()
   final String passwordConfirm;
+  @override
+  @JsonKey()
+  final bool passwordObscureRegistration;
+  @override
+  @JsonKey()
+  final bool passwordObscureConfirm;
 
   @override
   String toString() {
-    return 'SignInState(eMailRegistration: $eMailRegistration, passwordRegistration: $passwordRegistration, passwordConfirm: $passwordConfirm)';
+    return 'SignInState(eMailRegistration: $eMailRegistration, passwordRegistration: $passwordRegistration, passwordConfirm: $passwordConfirm, passwordObscureRegistration: $passwordObscureRegistration, passwordObscureConfirm: $passwordObscureConfirm)';
   }
 
   @override
@@ -150,12 +184,23 @@ class _$SignInStateImpl implements _SignInState {
             (identical(other.passwordRegistration, passwordRegistration) ||
                 other.passwordRegistration == passwordRegistration) &&
             (identical(other.passwordConfirm, passwordConfirm) ||
-                other.passwordConfirm == passwordConfirm));
+                other.passwordConfirm == passwordConfirm) &&
+            (identical(other.passwordObscureRegistration,
+                    passwordObscureRegistration) ||
+                other.passwordObscureRegistration ==
+                    passwordObscureRegistration) &&
+            (identical(other.passwordObscureConfirm, passwordObscureConfirm) ||
+                other.passwordObscureConfirm == passwordObscureConfirm));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, eMailRegistration, passwordRegistration, passwordConfirm);
+      runtimeType,
+      eMailRegistration,
+      passwordRegistration,
+      passwordConfirm,
+      passwordObscureRegistration,
+      passwordObscureConfirm);
 
   @JsonKey(ignore: true)
   @override
@@ -168,7 +213,9 @@ abstract class _SignInState implements SignInState {
   factory _SignInState(
       {final String eMailRegistration,
       final String passwordRegistration,
-      final String passwordConfirm}) = _$SignInStateImpl;
+      final String passwordConfirm,
+      final bool passwordObscureRegistration,
+      final bool passwordObscureConfirm}) = _$SignInStateImpl;
 
   @override
   String get eMailRegistration;
@@ -176,6 +223,10 @@ abstract class _SignInState implements SignInState {
   String get passwordRegistration;
   @override
   String get passwordConfirm;
+  @override
+  bool get passwordObscureRegistration;
+  @override
+  bool get passwordObscureConfirm;
   @override
   @JsonKey(ignore: true)
   _$$SignInStateImplCopyWith<_$SignInStateImpl> get copyWith =>
