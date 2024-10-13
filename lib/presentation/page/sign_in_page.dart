@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:training_app/core/extention/string_extention.dart';
 import 'package:training_app/presentation/app_router.dart';
 import 'package:training_app/presentation/components/custom_text_form_field.dart';
 import 'package:training_app/presentation/notifier_provider/sign_in_notifier_provider/sign_in_notifier.dart';

@@ -7,5 +7,6 @@ class LogInState with _$LogInState {
   factory LogInState({
     @Default('') String eMail,
     @Default('') String password,
+    @Default(false) bool obscure,
   }) = _LogInState;
 }

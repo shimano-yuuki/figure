@@ -17,4 +17,10 @@ class LogInNotifier extends _$LogInNotifier {
   void updatePassword(String password) {
     state = state.copyWith(password: password);
   }
+
+  //obscure
+  //真偽地を反転して更新
+  void updateObscure(bool obscure) {
+    state = state.copyWith(obscure: !obscure);
+  }
 }
