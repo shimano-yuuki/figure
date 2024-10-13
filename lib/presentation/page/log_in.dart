@@ -15,7 +15,7 @@ class LogInPage extends ConsumerWidget {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final logInStateProvider = ref.watch(logInNotifierProvider);
+    final logInState = ref.watch(logInNotifierProvider);
     final logInProvider = ref.watch(logInNotifierProvider.notifier);
     return Scaffold(
       backgroundColor: MyColor.darkgreen,
@@ -51,15 +51,14 @@ class LogInPage extends ConsumerWidget {
                           return Validate.passwordValidation(value);
                         },
                         obscureWidget: IconButton(
-                          icon: Icon(logInStateProvider.obscure
+                          icon: Icon(logInState.obscure
                               ? Icons.visibility_off
                               : Icons.visibility),
                           onPressed: () {
-                            logInProvider
-                                .updateObscure(logInStateProvider.obscure);
+                            logInProvider.updateObscure(logInState.obscure);
                           },
                         ),
-                        obscureText: logInStateProvider.obscure,
+                        obscureText: logInState.obscure,
                         onChanged: (value) {
                           logInProvider.updatePassword(value);
                         },
