@@ -86,7 +86,7 @@ class LogInPage extends ConsumerWidget {
                         fontSize: 12, color: MyColor.darkYellow),
                   ),
                   onPressed: () {
-                    context.goNamed(RouteNames.signInPage);
+                    context.pushNamed(RouteNames.signInPage);
                   },
                 ),
               ],
