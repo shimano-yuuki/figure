@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:training_app/presentation/app_router.dart';
 import 'package:training_app/presentation/components/custom_text_form_field.dart';
@@ -25,10 +26,7 @@ class SignInPage extends ConsumerWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
-                    height: 150,
-                    width: 150,
-                    child: Assets.images.figureLogo.image()),
+                SvgPicture.asset(Assets.images.svgs.figureLogo2),
                 Form(
                   key: _formKey,
                   child: Column(
